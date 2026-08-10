@@ -1,0 +1,20 @@
+import { useState } from "react";
+import ProductForm from "./productForm";
+import ProductTable from "./ProductTable";
+
+const ProductManagement = () => {
+  const [products, setProducts] = useState([]);
+  const handleAddProduct = (product) => {
+    const newProducts = [...products, product];
+    setProducts(newProducts);
+    console.log(products);
+  };
+  return (
+    <div>
+      <ProductForm handleAddProduct={handleAddProduct}></ProductForm>
+      <ProductTable products={products}></ProductTable>
+    </div>
+  );
+};
+
+export default ProductManagement;

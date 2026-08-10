@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+ @plugin "daisyui" {
+   themes: light --default, dark;
+ }
+
+ nav a{
+   margin-right: 10px;
+ }
+ nav a.active {
+    text-decoration: underline;
+    font-weight: 700;
+ }
