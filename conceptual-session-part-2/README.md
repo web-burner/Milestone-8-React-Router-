@@ -43,4 +43,4 @@
 
 37. sort method 
 38. remove data from ui and local storage 
-39. 
+39. show chart , customized array of data for chart 
