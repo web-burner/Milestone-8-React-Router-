@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+@plugin "daisyui" {
+   themes: light --default;
+ }
+
+ nav a{
+  border: 1px solid transparent;
+ }
+nav a.active {
+  border: 1px solid green;
+  color: green;
+}
