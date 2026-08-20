@@ -7,12 +7,15 @@ import { toast } from "react-toastify";
 import { addToLS, getFromLS } from "../localStorage/localStorage";
 import { useState } from "react";
 import NotFoundApp from "./NotFoundApp";
-import { useFetchData } from "../Hooks/Hooks";
 import Spinner from "./Spinner";
+import { useFetchData } from "../Hooks/Hooks";
 const AppDetails = () => {
+// const aId = Number(useParams().id)
   const appData = useLocation().state;
+const {loading} = useFetchData()
+// const appAata = data.find(app => app.id === aId)
+// console.log(data,appAata)
   const { id, image, title, companyName, size, description, ratings } = appData;
-  const { loading } = useFetchData();
 
   const company = companyName.toLowerCase().split(" ").join("");
   const navigate = useNavigate();
@@ -31,7 +34,7 @@ const AppDetails = () => {
       setInstall(true);
     }
   };
-  return !appData ? (
+  return !appData? (
     <NotFoundApp />
   ) : loading ? (
     <Spinner />

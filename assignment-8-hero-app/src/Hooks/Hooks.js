@@ -7,10 +7,12 @@ import { useEffect, useState } from "react";
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios("./appsData.json")
+    axios("https://raw.githubusercontent.com/web-burner/jsonData-/refs/heads/main/apps.json")
       .then((app) => setData(app.data))
       .catch((err) => setError(err))
-      .finally(() => setLoading(false));
+      .finally(() => setTimeout(() => {
+        setLoading(false)
+      }, 150));
   }, []);
 
   return { data, loading, error };

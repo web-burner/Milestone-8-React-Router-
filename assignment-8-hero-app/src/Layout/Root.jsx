@@ -7,7 +7,6 @@ import Spinner from "../Pages/Spinner";
 
 const Root = () => {
   const { loading } = useFetchData();
-
   return loading ? (
     <Spinner/>
   ) : (

@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router";
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 import { FaGithub } from "react-icons/fa";
 
 const Navbar = () => {
@@ -42,9 +42,12 @@ const Navbar = () => {
 
           <Link
             to={"/"}
-            className={"text-xl flex items-center justify-center font-bold"}
+            className={"text-2xl flex items-center justify-center font-bold"}
           >
-            <img src={logo} alt="Website Logo" className=" h-10" />
+            {/* <img src={logo} alt="Website Logo" className=" h-10" /> */}
+            <div className=' border-y-6 rounded-full h-10 w-10 flex justify-center items-center mr-2'>
+                <div className=' h-5 w-5 bg-black rounded-full '></div>
+            </div>
             <h1 className=" text-violet-500">HERO.IO</h1>
           </Link>
         </div>

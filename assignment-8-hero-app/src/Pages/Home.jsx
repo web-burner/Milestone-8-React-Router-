@@ -5,10 +5,12 @@ import { useFetchData } from "../Hooks/Hooks";
 import Spinner from "./Spinner";
 const Home = () => {
   const { data, loading } = useFetchData();
-  return (
+  return loading ? (
+    <Spinner />
+  ) : (
     <div>
       <Banner />
-      {loading ? <Spinner /> : <TrendingApp data={data} />}
+      <TrendingApp data={data} />
       <div className=" flex justify-center  p-10">
         <Link className=" bg-violet-500 btn text-white " to={"/apps"}>
           Show All

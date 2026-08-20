@@ -2,14 +2,23 @@ import { useState } from "react";
 import TrendApp from "../Component/trendingApps/TrendApp";
 import { useFetchData } from "../Hooks/Hooks";
 import Spinner from "./Spinner";
+import NotSearchAppFound from "./NotSearchAppFound";
 
 const AllApps = () => {
-  const { data, loading } = useFetchData();
+  const { data,  loading} = useFetchData();
   const [search, setSearch] = useState("");
   const term = search.toLowerCase().trim();
   const matchedData = data.filter((app) =>
     app.title.toLowerCase().includes(term),
   );
+  const [spin, setSpin] = useState(false);
+  const handleSearch = (e) => {
+    setSpin(true)
+    setSearch(e.target.value);
+    setTimeout(() => {
+      setSpin(false);
+    }, 300);
+  };
   return (
     <div className=" min-h-162.5">
       <div className=" pt-5 text-center">
@@ -22,7 +31,7 @@ const AllApps = () => {
         <p>({matchedData.length}) Apps found</p>
         <input
           onChange={(e) => {
-            setSearch(e.target.value);
+            handleSearch(e);
           }}
           type="search"
           name="search"
@@ -32,8 +41,10 @@ const AllApps = () => {
         />
       </div>
       <div className=" grid grid-cols-4 gap-5 w-11/12 mx-auto mb-5">
-        {loading ? (
+        {spin || loading ? (
           <Spinner />
+        ) : matchedData.length === 0 ? (
+          <NotSearchAppFound />
         ) : (
           matchedData.map((app) => <TrendApp key={app.id} app={app} />)
         )}

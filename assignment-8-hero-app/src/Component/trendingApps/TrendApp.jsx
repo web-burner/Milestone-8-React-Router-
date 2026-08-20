@@ -1,14 +1,17 @@
 import { CiStar } from "react-icons/ci";
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import { useNavigate } from "react-router";
+import { useFetchData } from "../../Hooks/Hooks";
+import Spinner from "../../Pages/Spinner";
 
 const TrendApp = ({ app }) => {
+  const {loading} = useFetchData()
   const { id,image, title, ratingAvg, downloads } = app;
 
   const navigate = useNavigate();
   return (
     <div
-      onClick={() => navigate(`/appDetails/${id}`,{state: app})}
+      onClick={() => loading? <Spinner/> : navigate(`/appDetails/${id}`,{state: app})}
       className=" shadow-md bg-base-200 rounded-2xl p-3 "
     >
       <img className=" rounded-lg h-74 w-74" src={image} alt="App Image" />
