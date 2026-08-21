@@ -96,8 +96,8 @@ const AppDetails = () => {
           </button>
         </div>
       </div>
-      <div className="md:ml-5 my-2 w-full h-60 p-5">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="md:ml-5 my-2 w-11/12 h-60">
+        <ResponsiveContainer width="90%" height="100%">
           <BarChart
             className=" sm:px-5 px-4"
             data={ratings}
