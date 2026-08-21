@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router";
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { MdRateReview } from "react-icons/md";
-import { Bar, BarChart, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import { toast } from "react-toastify";
 import { addToLS, getFromLS } from "../localStorage/localStorage";
 import { useState } from "react";
@@ -10,11 +10,9 @@ import NotFoundApp from "./NotFoundApp";
 import Spinner from "./Spinner";
 import { useFetchData } from "../Hooks/Hooks";
 const AppDetails = () => {
-// const aId = Number(useParams().id)
   const appData = useLocation().state;
-const {loading} = useFetchData()
-// const appAata = data.find(app => app.id === aId)
-// console.log(data,appAata)
+  const { loading } = useFetchData();
+
   const { id, image, title, companyName, size, description, ratings } = appData;
 
   const company = companyName.toLowerCase().split(" ").join("");
@@ -34,7 +32,7 @@ const {loading} = useFetchData()
       setInstall(true);
     }
   };
-  return !appData? (
+  return !appData ? (
     <NotFoundApp />
   ) : loading ? (
     <Spinner />
@@ -43,7 +41,11 @@ const {loading} = useFetchData()
       <div className=" w-11/12 mx-auto flex flex-col md:flex-row gap-5">
         <div>
           <figure className=" p-4 bg-base-300 w-48 md:w-auto rounded-2xl">
-            <img src={image} alt="" className=" rounded-2xl h-40 w-40 md:w-60  md:h-60 " />
+            <img
+              src={image}
+              alt=""
+              className=" rounded-2xl h-40 w-40 md:w-60  md:h-60 "
+            />
           </figure>
         </div>
         <div>
@@ -94,12 +96,18 @@ const {loading} = useFetchData()
           </button>
         </div>
       </div>
-      <div className="   md:ml-5 my-2">
-        <BarChart width={400} height={200}  className=" px-5 max-sm::w-150 max-sm::h-45" data={ratings} layout="vertical">
-          <XAxis type="number" />
-          <YAxis type="category" dataKey={"name"} />
-          <Bar dataKey="count" fill="green" />
-        </BarChart>
+      <div className="md:ml-5 my-2 w-full h-60 p-5">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            className=" sm:px-5 px-4"
+            data={ratings}
+            layout="vertical"
+          >
+            <XAxis type="number" />
+            <YAxis type="category" dataKey={"name"} />
+            <Bar dataKey="count" fill="green" />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
       <div className="w-11/12 mx-auto">
         <h2 className=" text-2xl font-semibold">Descriptions</h2>
