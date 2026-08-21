@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --spacing-height: calc(100vh - 185px)
+}
+
 @plugin "daisyui" {
   themes: light --default;
 }
@@ -7,5 +11,5 @@
 
 nav a.active {
   text-decoration: underline;
-  color:blueviolet;
+  color: blueviolet;
 }

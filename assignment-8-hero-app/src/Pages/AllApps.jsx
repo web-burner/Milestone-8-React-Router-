@@ -23,7 +23,7 @@ const AllApps = () => {
     <div className=" min-h-162.5">
       <div className=" pt-5 text-center">
         <h1 className=" text-3xl font-bold">Our All Applications</h1>
-        <p className=" text-gray-500">
+        <p className=" text-gray-500 text-sm my-2">
           Explore All Apps on the Market developed by us. We code for Millions
         </p>
       </div>
@@ -40,7 +40,15 @@ const AllApps = () => {
           className=" border p-1 rounded-md border-gray-400 outline-none"
         />
       </div>
-      <div className=" grid grid-cols-4 gap-5 w-11/12 mx-auto mb-5">
+      <div className=" 
+      grid grid-cols-2 
+      sm:grid-cols-3
+      md:grid-cols-4 md:p-5 
+      lg:grid-cols-4 lg:w-11/12
+       2xl:grid-cols-5
+      mx-auto 
+
+      gap-4 p-3 mt-5">
         {spin || loading ? (
           <Spinner />
         ) : matchedData.length === 0 ? (

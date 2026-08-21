@@ -3,7 +3,7 @@ import appError from '../assets/App-Error.png';
 const NotFoundApp = () => {
     const navigate = useNavigate()
     return (
-        <div className=' p-10 flex flex-col justify-center items-center min-h-162.5 col-span-4'>
+        <div className='min-h-height p-10 flex flex-col justify-center items-center  col-span-4'>
             <figure>
                 <img src={appError} alt="" />
             </figure>

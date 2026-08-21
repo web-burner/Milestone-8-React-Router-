@@ -4,7 +4,7 @@ import appError from '../assets/App-Error.png';
 const NotInstalled = () => {
     const navigate = useNavigate()
     return (
-        <div className=' p-10 flex flex-col justify-center items-center min-h-162.5'>
+        <div className=' p-10 flex flex-col justify-center items-center min-h-height'>
             <figure>
                 <img src={appError} alt="" />
             </figure>

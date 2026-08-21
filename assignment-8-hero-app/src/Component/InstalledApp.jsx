@@ -2,17 +2,22 @@ import { FaStar } from "react-icons/fa";
 import { IoCloudDownload } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
 
-const InstalledApp = ({ app , handleRemove}) => {
-  const {id, image, title, downloads, size, ratingAvg } = app;
-  
+const InstalledApp = ({ app, handleRemove }) => {
+  const { id, image, title, downloads, size, ratingAvg } = app;
+
   return (
-    <div className=" flex items-center justify-between p-5 bg-base-300 rounded-2xl mb-5">
-      <div className=" flex items-center gap-4">
-        <figure>
-          <img className=" w-15 rounded-xl" src={image} alt="" />
+    <div className=" flex items-center justify-between
+     p-3 md:p-5 bg-base-300 rounded-2xl mb-2 md:mb-5">
+      <div className=" flex flex-col md:flex-row justify-start md:items-center gap-1 md:gap-4">
+        <figure className=" flex items-center gap-3">
+          <img className=" 
+        rounded-lg
+        h-12 w-12"
+         src={image} alt="" />
+         <h1 className=" md:hidden text-lg font-semibold">{title}</h1>
         </figure>
-        <div className=" flex gap-5 items-center">
-          <h1 className=" text-lg font-semibold">{title}</h1>
+        <h1 className="hidden md:block text-lg font-semibold">{title}</h1>
+        <div className=" flex gap-2 md:gap-5 items-center">
           <div className=" flex gap-3 items-center">
             <p className=" flex items-center gap-1">
               <IoCloudDownload className=" text-green-600" /> {downloads}
@@ -24,10 +29,14 @@ const InstalledApp = ({ app , handleRemove}) => {
           </div>
         </div>
       </div>
-      <button onClick={()=> handleRemove(id,title)} className=" btn bg-red-600 border-0 text-white">
+      <button
+      title="Uninstall"
+        onClick={() => handleRemove(id, title)}
+        className=" btn bg-red-600 border-0 text-white"
+      >
         {" "}
         <MdDeleteForever />
-        Uninstall
+        <span className=" hidden md:inline">Uninstall</span>
       </button>
     </div>
   );

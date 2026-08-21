@@ -39,11 +39,11 @@ const {loading} = useFetchData()
   ) : loading ? (
     <Spinner />
   ) : (
-    <div className=" min-h-162.5  bg-base-200 pt-10">
-      <div className=" w-11/12 mx-auto flex gap-5">
+    <div className=" min-h-154  bg-base-200 py-5 md:p-0 md:pt-5">
+      <div className=" w-11/12 mx-auto flex flex-col md:flex-row gap-5">
         <div>
-          <figure className=" p-4 bg-base-300 rounded-2xl">
-            <img src={image} alt="" className=" rounded-2xl w-60 h-60 " />
+          <figure className=" p-4 bg-base-300 w-48 md:w-auto rounded-2xl">
+            <img src={image} alt="" className=" rounded-2xl h-40 w-40 md:w-60  md:h-60 " />
           </figure>
         </div>
         <div>
@@ -56,22 +56,22 @@ const {loading} = useFetchData()
               </span>
             </h2>
           </div>
-          <div className=" flex gap-10 py-5">
-            <div>
+          <div className=" flex gap-10 py-5  space-y-3">
+            <div className=" space-y-2">
               <p className=" text-3xl font-extrabold text-green-600">
                 <IoCloudDownloadOutline />
               </p>
               <p>Downloads</p>
               <p className=" text-4xl font-bold">8M</p>
             </div>
-            <div>
+            <div className=" space-y-2">
               <p className="text-3xl font-extrabold text-yellow-400">
                 <FaStar />
               </p>
               <p>Average Ratings</p>
               <p className=" text-4xl font-bold">4.9</p>
             </div>
-            <div>
+            <div className=" space-y-2">
               <p className="text-3xl font-extrabold text-violet-500">
                 <MdRateReview />
               </p>
@@ -94,8 +94,8 @@ const {loading} = useFetchData()
           </button>
         </div>
       </div>
-      <div className="   ml-10 my-5">
-        <BarChart width={600} height={200} data={ratings} layout="vertical">
+      <div className="   md:ml-5 my-2">
+        <BarChart width={400} height={200}  className=" px-5 max-sm::w-150 max-sm::h-45" data={ratings} layout="vertical">
           <XAxis type="number" />
           <YAxis type="category" dataKey={"name"} />
           <Bar dataKey="count" fill="green" />

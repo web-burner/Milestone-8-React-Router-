@@ -33,19 +33,19 @@ const InstallationApp = () => {
     <NotInstalled />
   ) : (
     loading ? <Spinner/> :
-    <div className=" min-h-162.5  w-10/12 mx-auto p-10">
+    <div className=" min-h-height md:min-h-162.5 p-3  md:w-10/12 mx-auto md:p-10">
       <div className=" text-center">
         <h1 className=" text-3xl font-bold">Your Installed Apps</h1>
         <p>Explore All Trending Apps on the Market developed by us</p>
       </div>
       <div className="">
-        <div className=" flex justify-between mb-5">
+        <div className=" flex justify-between items-center mb-5">
           <p>({apps.length}) App Found</p>
 
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            className="select"
+            className="select w-30 outline-0 border-gray-400"
           >
             <option disabled={true}>Sort By</option>
 

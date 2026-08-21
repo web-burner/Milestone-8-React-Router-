@@ -1,7 +1,7 @@
 import appError from '../assets/App-Error.png';
 const NotSearchAppFound = () => {
     return (
-        <div className=' p-5 flex flex-col justify-center items-center min-h-120 col-span-4'>
+        <div className=' p-5 flex flex-col justify-center items-center min-h-height col-span-4'>
                     <figure>
                         <img src={appError} alt="" />
                     </figure>
